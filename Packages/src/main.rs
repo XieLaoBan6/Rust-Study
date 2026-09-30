@@ -205,3 +205,36 @@ pub fn eat_at_restaurant()
 }
 */
 
+/*
+//通过指定路径的公共部分，后跟两个冒号，然后在花括号中列出路径中不同的部分来实现
+use std::{cmp::Ordering, io};
+
+/*
+use std::io;
+use std::io::Write;
+
+use std::io::{self, Write};
+*/
+
+//将一个路径中定义的所有公共项都引入作用域
+use std::collections::*;
+
+*/
+
+/*
+目录架构
+src/
+├── lib.rs                // mod front_of_house; mod customer;
+├── front_of_house.rs     // pub mod hosting;
+├── front_of_house/
+    └── hosting.rs        // pub fn add_to_waitlist() {}
+*/
+
+mod front_of_house;
+
+pub use crate::front_of_house::hosting;
+
+pub fn eat_at_restaurant()
+{
+    hosting::add_to_waitlist();
+}
